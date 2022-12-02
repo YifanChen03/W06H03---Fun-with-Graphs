@@ -4,6 +4,7 @@ public class DenseGraph implements Graph {
 
 	public DenseGraph(int nodes) {
 		// TODO
+
 	}
 
 	@Override
