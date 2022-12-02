@@ -6,7 +6,6 @@ compileJava.options.encoding = 'UTF-8'
 repositories {
     mavenCentral()
 }
-
 sourceSets {
     main {
         java {
@@ -21,6 +20,7 @@ sourceSets {
 }
 test {
     useJUnitPlatform()
+    maxHeapSize = "8000m"
 }
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'

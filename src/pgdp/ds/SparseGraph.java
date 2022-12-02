@@ -1,7 +1,5 @@
 package pgdp.ds;
 
-import java.util.Arrays;
-
 public class SparseGraph implements Graph {
 
 	private int nodes;
@@ -10,12 +8,9 @@ public class SparseGraph implements Graph {
 		// TODO
 		if (nodes < 0) {
 			this.nodes = 0;
-		} else {
-			this.nodes = nodes;
-		}
-		if (nodes < 0) {
 			sims = new SimpleSet[0];
 		} else {
+			this.nodes = nodes;
 			sims = new SimpleSet[nodes];
 		}
 		//jedes sims enthält seine verbundenen Knoten in Richtung von diesem sims aus

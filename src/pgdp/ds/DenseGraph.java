@@ -1,7 +1,6 @@
 package pgdp.ds;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DenseGraph implements Graph {
 
@@ -13,12 +12,9 @@ public class DenseGraph implements Graph {
 		// TODO
 		if (nodes < 0) {
 			this.nodes = 0;
-		} else {
-			this.nodes = nodes;
-		}
-		if (nodes < 0) {
 			b_graph = new boolean[0][0];
 		} else {
+			this.nodes = nodes;
 			b_graph = new boolean[nodes][nodes];
 		}
 	}
@@ -49,7 +45,7 @@ public class DenseGraph implements Graph {
 	@Override
 	public int[] getAdj(int id) {
 		// TODO
-		List<Integer> out = new ArrayList<Integer>();
+		ArrayList<Integer> out = new ArrayList<Integer>();
 		if (id >= 0 && id < nodes) {
 			for (int i = 0; i < nodes; i++) {
 				if (b_graph[id][i]) {
