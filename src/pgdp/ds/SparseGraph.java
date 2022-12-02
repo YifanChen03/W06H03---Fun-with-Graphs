@@ -41,10 +41,8 @@ public class SparseGraph implements Graph {
 	@Override
 	public boolean isAdj(int from, int to) {
 		// TODO
-		if (from >= 0 && from < sims.length) {
-			if (sims[from].contains(to)) {
-				return true;
-			}
+		if (from >= 0 && from < sims.length && sims[from].contains(to)) {
+			return true;
 		}
 		return false;
 	}

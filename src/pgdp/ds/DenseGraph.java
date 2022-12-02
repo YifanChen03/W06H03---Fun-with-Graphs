@@ -52,7 +52,7 @@ public class DenseGraph implements Graph {
 		List<Integer> out = new ArrayList<Integer>();
 		if (id >= 0 && id < nodes) {
 			for (int i = 0; i < nodes; i++) {
-				if (b_graph[id][i] == true) {
+				if (b_graph[id][i]) {
 					out.add(i);
 				}
 			}
