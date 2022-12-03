@@ -20,7 +20,7 @@ sourceSets {
 }
 test {
     useJUnitPlatform()
-    maxHeapSize = "8000m"
+    maxHeapSize = "100000m"
 }
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
