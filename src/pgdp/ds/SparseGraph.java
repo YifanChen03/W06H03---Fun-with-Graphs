@@ -3,6 +3,8 @@ package pgdp.ds;
 public class SparseGraph implements Graph {
 
 	private int nodes;
+
+	private int nodes_pos;
 	private SimpleSet[] sims;
 	public SparseGraph(int nodes) {
 		// TODO
@@ -13,10 +15,7 @@ public class SparseGraph implements Graph {
 			this.nodes = nodes;
 			sims = new SimpleSet[nodes];
 		}
-		//jedes sims enthält seine verbundenen Knoten in Richtung von diesem sims aus
-		for (int i = 0; i < nodes; i++) {
-			sims[i] = new SimpleSet();
-		}
+		nodes_pos = 0;
 	}
 
 	@Override
@@ -28,7 +27,10 @@ public class SparseGraph implements Graph {
 	@Override
 	public void addEdge(int from, int to) {
 		// TODO
-		if (from >= 0 && from < sims.length && to >= 0 && to < sims.length) {
+		if (from >= 0 && from < nodes && to >= 0 && to < nodes) {
+			if (sims[from] == null) {
+				sims[from] = new SimpleSet();
+			}
 			sims[from].add(to);
 		}
 	}
@@ -36,8 +38,10 @@ public class SparseGraph implements Graph {
 	@Override
 	public boolean isAdj(int from, int to) {
 		// TODO
-		if (from >= 0 && from < sims.length && sims[from].contains(to)) {
-			return true;
+		if (from >= 0 && from < nodes && sims[from] != null) {
+			if (sims[from].contains(to)) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -46,7 +50,11 @@ public class SparseGraph implements Graph {
 	public int[] getAdj(int id) {
 		// TODO
 		if (id >= 0 && id < nodes) {
-			return sims[id].toArray();
+			if (sims[id] == null) {
+				return new int[]{};
+			} else {
+				return sims[id].toArray();
+			}
 		}
 		return null;
 	}
