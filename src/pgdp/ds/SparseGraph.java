@@ -3,8 +3,6 @@ package pgdp.ds;
 public class SparseGraph implements Graph {
 
 	private int nodes;
-
-	private int nodes_pos;
 	private SimpleSet[] sims;
 	public SparseGraph(int nodes) {
 		// TODO
@@ -15,7 +13,6 @@ public class SparseGraph implements Graph {
 			this.nodes = nodes;
 			sims = new SimpleSet[nodes];
 		}
-		nodes_pos = 0;
 	}
 
 	@Override
@@ -38,10 +35,8 @@ public class SparseGraph implements Graph {
 	@Override
 	public boolean isAdj(int from, int to) {
 		// TODO
-		if (from >= 0 && from < nodes && sims[from] != null) {
-			if (sims[from].contains(to)) {
-				return true;
-			}
+		if (from >= 0 && from < nodes && sims[from] != null && sims[from].contains(to)) {
+			return true;
 		}
 		return false;
 	}
